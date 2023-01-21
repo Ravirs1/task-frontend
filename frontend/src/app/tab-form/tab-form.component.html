@@ -1,0 +1,62 @@
+<h1>Location</h1>
+
+<button mat-raised-button color="primary" class="example-add-tab-button" (click)="openDialog()">
+    Add new tab
+</button>
+
+<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+    <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+        <div *ngIf="index != 0">
+            Contents for {{tab}} tab
+        </div>
+
+        <div *ngIf="index == 0">
+            <!-- Form -->
+            <div class="container">
+                <h1>Location Details
+                </h1>
+                <div class="row">
+                    <div class="col col-md-8" style="overflow-y: scroll; max-height: 100vh">
+                        <form [formGroup]="LocationForm" (ngSubmit)="save()">
+                            <div>
+                                <label for="file" class="form-label">Photo</label>
+                                <input matInput  type="file" class="form-control" id="Name" formControlName="file" />
+                            </div>
+                            <div class="align">
+                            <div >
+                                <label for="firstName" class="form-label">Name</label>
+                                <input matInput  type="text" class="form-control" id="Name" formControlName="firstName" />
+                            </div>
+                            <div>
+                                <label for="lastName" class="form-label">Description</label>
+                                </div>
+                                <div>
+                                <textarea matInput  cols="30" rows="5" type="text" class="form-control" id="description" formControlName="lastName" >
+                                </textarea>
+                                </div>
+                            <div>
+                                <label>Class</label>
+                                <select class="form-control" formControlName="class">
+                                  <option value="one">First option</option>
+                                  <option value="two">Second option</option>
+                                </select>
+                                </div>
+                                <div>
+                                <label>Type</label>
+                                <select class="form-control" formControlName="type">
+                                  <option value="one">First option</option>
+                                  <option value="two">Second option</option>
+                                </select>
+                                </div>
+                                <div>
+                                    </div>
+                            <button type="submit" mat-raised-button color="primary"  class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,20 @@
+.logo {
+    height: 100px;
+    width: 100px;
+}
+
+.list-item {
+    list-style: none;
+}
+
+.list-item li {
+    cursor: pointer;
+    border-bottom: 2px solid black;
+    display: inline;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
